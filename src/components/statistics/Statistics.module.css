@@ -24,8 +24,15 @@
 
   background-color: #7fd3f4;
   color: #373636;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 
   font-weight: 600;
+}
+
+.statisticsButton:hover,
+.statisticsButton:focus{
+	transform: scale(1.03);
+	transition-duration: 200ms;
 }
 
 .feedback {
