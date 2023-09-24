@@ -1,9 +1,9 @@
-import { Statistics } from './statistics/Statistics';
+import { Feedback } from './feedback/Feedback';
 
 export const App = () => {
   return (
     <div>
-      <Statistics />
+      <Feedback />
     </div>
   );
 };
