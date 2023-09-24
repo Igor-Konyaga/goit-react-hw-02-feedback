@@ -6,14 +6,29 @@ export class Statistics extends Component {
     good: 0,
     neutral: 0,
     bad: 0,
+    total: 0,
+    positiveFeedback: 0,
   };
 
-  click = e => {
-    console.log(e.currentTarget.id);
-    this.setState({
-      [e.currentTarget.id]: this.state[e.currentTarget.id] + 1,
+  handleClick = e => {
+    const currentId = e.target.id;
+
+    this.setState(prevState => {
+      const calcPersent =
+        (100 / (prevState.good + prevState.neutral + prevState.bad + 1)) *
+        prevState.good;
+		  const resultPercent = Math.trunc(calcPersent);
+      return {
+        positiveFeedback: resultPercent,
+        [currentId]: prevState[currentId] + 1,
+        total: prevState.good + prevState.neutral + prevState.bad + 1,
+      };
     });
   };
+
+  countTotalFeedback = () => {};
+
+  countPositiveFeedbackPercentage = () => {};
 
   render() {
     return (
@@ -24,7 +39,7 @@ export class Statistics extends Component {
             <button
               className={css.statisticsButton}
               id="good"
-              onClick={this.click}
+              onClick={this.handleClick}
             >
               Good
             </button>
@@ -33,7 +48,7 @@ export class Statistics extends Component {
             <button
               className={css.statisticsButton}
               id="neutral"
-              onClick={this.click}
+              onClick={this.handleClick}
             >
               Neutral
             </button>
@@ -42,7 +57,7 @@ export class Statistics extends Component {
             <button
               className={css.statisticsButton}
               id="bad"
-              onClick={this.click}
+              onClick={this.handleClick}
             >
               Bad
             </button>
@@ -60,6 +75,10 @@ export class Statistics extends Component {
             <p>Bad: {this.state.bad}</p>
           </li>
         </ul>
+        <div className={css.totalBody}>
+          <p>Total: {this.state.total}</p>
+          <p>Positive feedback: {this.state.positiveFeedback}%</p>
+        </div>
       </div>
     );
   }
