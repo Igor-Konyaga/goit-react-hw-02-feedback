@@ -16,8 +16,8 @@ export class Statistics extends Component {
     this.setState(prevState => {
       const calcPersent =
         (100 / (prevState.good + prevState.neutral + prevState.bad + 1)) *
-        prevState.good;
-		  const resultPercent = Math.trunc(calcPersent);
+        (prevState.good + (currentId === 'good' && 1));
+      const resultPercent = Math.trunc(calcPersent);
       return {
         positiveFeedback: resultPercent,
         [currentId]: prevState[currentId] + 1,
