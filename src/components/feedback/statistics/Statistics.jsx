@@ -9,7 +9,7 @@ export const Statistics = ({
 }) => {
   return (
     <>
-      <h2 className={css.title}>Statistics</h2>
+      <h2 className={css.title}>Statistic</h2>
       <ul className={`${css.list} ${css.statistics}`}>
         <li>
           <p>Good: {good}</p>
