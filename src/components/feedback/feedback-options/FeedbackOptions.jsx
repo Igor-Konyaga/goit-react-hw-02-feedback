@@ -1,6 +1,6 @@
 import css from './FeedbackOptions.module.css';
 
-export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
+export const FeedbackOptions = ({ onLeaveFeedback }) => {
   return (
     <ul className={`${css.list} ${css.feedback0ption}`}>
       <li>
