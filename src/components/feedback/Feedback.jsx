@@ -36,10 +36,10 @@ export class Feedback extends Component {
   render() {
     return (
       <Section title={'Please leave feedback'}>
-        <FeedbackOptions onLeaveFeedback={this.handleClick} />
-        {this.state.good === 1 ||
-        this.state.neutral === 1 ||
-        this.state.bad === 1 ? (
+        <FeedbackOptions onLeaveFeedback={this.handleClick}/>
+        {this.state.good > 0 ||
+        this.state.neutral > 0 ||
+        this.state.bad > 0 ? (
           <Statistics
             good={this.state.good}
             neutral={this.state.neutral}
